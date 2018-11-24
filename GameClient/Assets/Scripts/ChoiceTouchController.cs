@@ -8,12 +8,14 @@ using UnityEngine.SceneManagement;
 public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
   private GameObject m_LeftObject; 
   private GameObject m_RightObject; 
+  public float m_XOffset = 0.3f;
+  public float m_YOffset = 0.0f;
 
 	void Start () {
 	  m_LeftObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-    m_LeftObject.transform.position = new Vector3(-1.9f, 0.0f, 0.0f);	
+    m_LeftObject.transform.position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
 	  m_RightObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-    m_RightObject.transform.position = new Vector3(1.9f, 0.0f, 0.0f);	
+    m_RightObject.transform.position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
 	}
 
 	void Update () {
