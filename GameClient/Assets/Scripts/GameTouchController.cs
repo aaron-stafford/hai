@@ -10,6 +10,6 @@ public class GameTouchController : MonoBehaviour, IPointerDownHandler, IPointerU
   }
 
   public void OnPointerUp(PointerEventData eventData) {
-    SceneManager.LoadScene("EndUI");
+    SceneManager.LoadScene("End");
   }
 }
