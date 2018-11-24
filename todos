@@ -1,22 +1,8 @@
 Timeline progression test.
 - Something that has an animation and animation controller (something with a
-  timeline that we can use to change the gameworld as we go.
-
-Technique for spawning a "decision to be made"
-- pick two different types of goem.
-- Show one on left, one on right.
--- Touch detection. Reporting.
-
-
-Test out generating the cubes from a script.
+  timeline that we can use to change the gameworld as we go).
 
 Test out a particle effect.
 
 Test out a rain effects (spawning like rain?)
 - All of these things...
-
-Add ability to select left side of screen and right side (selection mechanism).
-
-Ability to select one of two objects on screen.
-
-
