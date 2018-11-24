@@ -12,10 +12,11 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   public float m_YOffset = 0.0f;
 
 	void Start () {
-	  m_LeftObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-    m_LeftObject.transform.position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
-	  m_RightObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-    m_RightObject.transform.position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
+    Object[] prefabs = Resources.LoadAll("Prefabs");
+    Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
+	  m_LeftObject = Instantiate((GameObject)prefabs[2], position, Quaternion.identity);
+    position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
+	  m_RightObject = Instantiate((GameObject)prefabs[3], position, Quaternion.identity);
 	}
 
 	void Update () {
