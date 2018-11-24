@@ -36,11 +36,13 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     GameObject gameObject = (GameObject)m_Prefabs[randomValue];
     if( eventData.position.x < Screen.width * 0.5 ) {
       m_LeftObject.AddComponent<Rigidbody>();
+      m_LeftObject.AddComponent<PrefabController>();
       Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
 	    m_LeftObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     }
     else {
       m_RightObject.AddComponent<Rigidbody>();
+      m_RightObject.AddComponent<PrefabController>();
       Vector3 position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
 	    m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     }

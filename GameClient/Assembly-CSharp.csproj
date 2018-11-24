@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\EndTouchController.cs" />
      <Compile Include="Assets\Scripts\GameTouchController.cs" />
      <Compile Include="Assets\Scripts\ObjectType1Manager.cs" />
+     <Compile Include="Assets\Scripts\PrefabController.cs" />
      <Compile Include="Assets\Scripts\SplitScreenTouchController.cs" />
      <Compile Include="Assets\Scripts\StartTouchController.cs" />
  <Reference Include="UnityEditor.StandardEvents">
