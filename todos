@@ -1,8 +1,11 @@
 Timeline progression test.
 - Something that has an animation and animation controller (something with a
   timeline that we can use to change the gameworld as we go).
+- Length to be determine by how long we have for presentation.
 
 Test out a particle effect.
 
 Test out a rain effects (spawning like rain?)
 - All of these things...
+
+Health mechanic
