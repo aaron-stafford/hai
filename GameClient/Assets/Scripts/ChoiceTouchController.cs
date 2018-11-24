@@ -13,13 +13,16 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   private Object[] m_Prefabs;
 
 	void Start () {
+    //m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
     int randomValue = Random.Range(0, m_Prefabs.Length);
     Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
-	  m_LeftObject = Instantiate((GameObject)m_Prefabs[randomValue], position, Quaternion.identity);
+    GameObject gameObject = (GameObject)m_Prefabs[randomValue];
+	  m_LeftObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     randomValue = Random.Range(0, m_Prefabs.Length);
     position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
-	  m_RightObject = Instantiate((GameObject)m_Prefabs[randomValue], position, Quaternion.identity);
+    gameObject = (GameObject)m_Prefabs[randomValue];
+	  m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
 	}
 
 	void Update () {
@@ -29,19 +32,17 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   }
 
   public void OnPointerUp(PointerEventData eventData) {
+    int randomValue = Random.Range(0, m_Prefabs.Length);
+    GameObject gameObject = (GameObject)m_Prefabs[randomValue];
     if( eventData.position.x < Screen.width * 0.5 ) {
-      Debug.Log("Left side");
       m_LeftObject.AddComponent<Rigidbody>();
-      int randomValue = Random.Range(0, m_Prefabs.Length);
       Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
-	    m_LeftObject = Instantiate((GameObject)m_Prefabs[randomValue], position, Quaternion.identity);
+	    m_LeftObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     }
     else {
-      Debug.Log("Right side");
       m_RightObject.AddComponent<Rigidbody>();
-      int randomValue = Random.Range(0, m_Prefabs.Length);
       Vector3 position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
-	    m_RightObject = Instantiate((GameObject)m_Prefabs[randomValue], position, Quaternion.identity);
+	    m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     }
   }
 }
