@@ -13,7 +13,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   private Object[] m_Prefabs;
 
 	void Start () {
-    m_Prefabs = Resources.LoadAll("Prefabs");
+    m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
     int randomValue = Random.Range(0, m_Prefabs.Length);
     Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
 	  m_LeftObject = Instantiate((GameObject)m_Prefabs[randomValue], position, Quaternion.identity);
