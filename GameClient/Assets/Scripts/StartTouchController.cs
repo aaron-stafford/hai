@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class EndUITouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler  {
+public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
   public void OnPointerDown(PointerEventData eventData) {
   }
 
