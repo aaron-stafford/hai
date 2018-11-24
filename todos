@@ -1,3 +1,7 @@
+Timeline progression test.
+- Something that has an animation and animation controller (something with a
+  timeline that we can use to change the gameworld as we go.
+
 Test out generating the cubes from a script.
 
 Test out a particle effect.
