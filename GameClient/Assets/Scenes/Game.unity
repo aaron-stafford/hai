@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 16691232}
   - component: {fileID: 16691234}
   - component: {fileID: 16691233}
+  - component: {fileID: 16691235}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -188,6 +189,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 16691231}
   m_CullTransparentMesh: 0
+--- !u!114 &16691235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 16691231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945a26cb2b960490599e0ae585bce201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLeft: 10
+  countdownText: {fileID: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +425,11 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223279519951347654, guid: 3bb565db0cfb34fc291d8973dee62d31,
+        type: 2}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb565db0cfb34fc291d8973dee62d31, type: 2}

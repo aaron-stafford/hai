@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SplitScreenTouchController.cs" />
      <Compile Include="Assets\Scripts\StartTouchController.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/aaron/projects/gamejam2018/GameClient/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
