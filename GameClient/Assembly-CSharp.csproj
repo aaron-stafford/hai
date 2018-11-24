@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\EndUITouchController.cs" />
+     <Compile Include="Assets\Scripts\GameTouchController.cs" />
      <Compile Include="Assets\Scripts\TouchPanelController.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/aaron/projects/genesis/GameClient/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
