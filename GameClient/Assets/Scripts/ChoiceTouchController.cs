@@ -25,9 +25,11 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   public void OnPointerUp(PointerEventData eventData) {
     if( eventData.position.x < Screen.width * 0.5 ) {
       Debug.Log("Left side");
+      m_LeftObject.AddComponent<Rigidbody>();
     }
     else {
       Debug.Log("Right side");
+      m_RightObject.AddComponent<Rigidbody>();
     }
   }
 }
