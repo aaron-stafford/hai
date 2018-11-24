@@ -11,9 +11,10 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   public float m_XOffset = 0.3f;
   public float m_YOffset = 0.0f;
   private Object[] m_Prefabs;
+  public float m_MatchTime = 1.0f;
+  private float m_Timestamp;
 
 	void Start () {
-    //m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
     int randomValue = Random.Range(0, m_Prefabs.Length);
     Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
@@ -23,9 +24,18 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
     gameObject = (GameObject)m_Prefabs[randomValue];
 	  m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+    m_Timestamp = Time.time;
+    Debug.Log(m_Timestamp);
 	}
 
 	void Update () {
+    if(m_LeftObject.name.Equals(m_RightObject.name)) {
+      float currentTime = Time.time;
+      float elapsedTime = currentTime - m_Timestamp;
+      if(elapsedTime > m_MatchTime) {
+        // Debug.Log("We have a match");
+      }
+    }
 	}
 
   public void OnPointerDown(PointerEventData eventData) {
@@ -46,5 +56,6 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
       Vector3 position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
 	    m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     }
+    m_Timestamp = Time.time;
   }
 }
