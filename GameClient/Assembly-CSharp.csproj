@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\EndTouchController.cs" />
      <Compile Include="Assets\Scripts\GameTouchController.cs" />
+     <Compile Include="Assets\Scripts\ObjectType1Manager.cs" />
      <Compile Include="Assets\Scripts\StartTouchController.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/aaron/projects/gamejam2018/GameClient/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
