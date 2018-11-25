@@ -9,6 +9,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
   private Object[] m_Prefabs;
   private bool haveWon = false;
   private float m_SpawnInterval = 0.5f;
+  public GameObject m_CameraGameObject;
 
 	// Use this for initialization (Stuff you only want to do once)
 	void Start () {
@@ -22,6 +23,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     if(haveWon) {
       WinConditionUpdate();
     }
+
   }
 
   private void WinConditionUpdate() {
@@ -36,10 +38,30 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
   // Called when the mouse or finger touch down
   public void OnPointerDown(PointerEventData eventData) {
+    if(eventData == null) {
+      Debug.Log("eventData is null");
+    }
+    Debug.Log("eventData: " + eventData.position);
+
+    Camera camera = m_CameraGameObject.GetComponent<Camera>(); 
+    if(camera == null) {
+      Debug.Log("camera is null");
+    }
+    //Ray raycast = Camera.main.ScreenPointToRay(eventData.position);
+    Ray raycast = camera.ScreenPointToRay(eventData.position);
+    
+    Debug.Log("Got raycast");
+    RaycastHit raycastHit;
+    if (Physics.Raycast(raycast, out raycastHit))
+    {
+        Destroy(raycastHit.transform.gameObject);
+        Debug.Log("Something Hit");
+    }
   }
 
   // Called when the mouse or finger touch up
   public void OnPointerUp(PointerEventData eventData) {
+/*
     if( eventData.position.x < Screen.width * 0.5 ) {
       ScoreManager.Instance.AddToScore(10);
     }
@@ -50,6 +72,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     if(ScoreManager.Instance.IsBossDead()) {
       SceneManager.LoadScene("Win");
     }
+*/
   }
 
   IEnumerator Begin () {
