@@ -9,7 +9,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
   private Object[] m_Prefabs;
   private bool haveWon = false;
   private bool haveLost = false;
-  private float m_SpawnInterval = 0.5f;
+  private float m_SpawnInterval = 0.4f;
   public GameObject m_CameraGameObject;
 
 	// Use this for initialization (Stuff you only want to do once)
@@ -111,18 +111,21 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
   IEnumerator Begin () {
     while(true) {
+      int coinToss = Random.Range(0, 3);
       Vector3 position = new Vector3(0.0f, 5.0f, -3.43f);	
-      GameObject enemy = Instantiate(Resources.Load("EnemyPrefabs/Enemy")) as GameObject;
-      enemy.transform.position = position;
-      enemy.AddComponent<Rigidbody>();
-      enemy.AddComponent<PrefabController>();
-
-
-      int randomValue = Random.Range(0, m_Prefabs.Length);
-      GameObject gameObject = (GameObject)m_Prefabs[randomValue];
- 	    GameObject newGameObject = Instantiate(gameObject, position, gameObject.transform.rotation);
-      newGameObject.AddComponent<Rigidbody>();
-      newGameObject.AddComponent<PrefabController>();
+      if(coinToss != 0) {
+        GameObject enemy = Instantiate(Resources.Load("EnemyPrefabs/Enemy")) as GameObject;
+        enemy.transform.position = position;
+        enemy.AddComponent<Rigidbody>();
+        enemy.AddComponent<PrefabController>();
+      }
+      else {
+        int randomValue = Random.Range(0, m_Prefabs.Length);
+        GameObject gameObject = (GameObject)m_Prefabs[randomValue];
+ 	      GameObject newGameObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+        newGameObject.AddComponent<Rigidbody>();
+        newGameObject.AddComponent<PrefabController>();
+      }
       yield return new WaitForSeconds (m_SpawnInterval);
     }
   }
