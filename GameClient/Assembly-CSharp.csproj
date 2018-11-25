@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BossFightTouchController.cs" />
      <Compile Include="Assets\Scripts\ChoiceTouchController.cs" />
      <Compile Include="Assets\Scripts\EndTouchController.cs" />
      <Compile Include="Assets\Scripts\GameTouchController.cs" />

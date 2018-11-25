@@ -31,7 +31,6 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     m_RightObject.transform.parent = m_GameRoot.transform;
     m_Timestamp = Time.time;
     MatchManager.Instance.Reset();
-    
 	}
 
 	void Update () {

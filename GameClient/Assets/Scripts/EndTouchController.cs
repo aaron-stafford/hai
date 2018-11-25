@@ -10,6 +10,6 @@ public class EndTouchController : MonoBehaviour, IPointerDownHandler, IPointerUp
   }
 
   public void OnPointerUp(PointerEventData eventData) {
-    SceneManager.LoadScene("Game");
+    SceneManager.LoadScene("Gamev2");
   }
 }
