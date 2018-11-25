@@ -11,9 +11,9 @@ public class HealthController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	  //m_InitialWidth = GetComponent<RectTransform>().rect.width;
-	  Debug.Log(GetComponent<RectTransform>().rect);
-	  Debug.Log(m_InitialWidth);
+	  // m_InitialWidth = GetComponent<RectTransform>().rect.width;
+	  // Debug.Log(GetComponent<RectTransform>().rect);
+	  // Debug.Log(m_InitialWidth);
 	  RectTransform rt = GetComponent<RectTransform>();
     //Rect rect = GetComponent<RectTransform>().rect;
 	  //GetComponent<RectTransform>().sizeDelta =  new Vector2 (100, rt.sizeDelta.y);

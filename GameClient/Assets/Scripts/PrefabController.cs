@@ -13,7 +13,6 @@ public class PrefabController : MonoBehaviour {
 	void Update () {
 	  if(transform.position.y < -10)
     {
-      Debug.Log("can remove");	
       Destroy(gameObject);
     }
 	}

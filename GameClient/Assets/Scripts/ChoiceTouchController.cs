@@ -31,6 +31,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     m_RightObject.transform.parent = m_GameRoot.transform;
     m_Timestamp = Time.time;
     MatchManager.Instance.Reset();
+    Debug.Log("The timer has started.");
 	}
 
 	void Update () {
@@ -41,9 +42,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
         if(elapsedTime > m_MatchTime) {
           MatchManager.Instance.FoundMatch();
           m_GameRoot.GetComponent<Animator>().Play("Matched", -1, 0);
-          //m_GameRoot.GetComponent<Animator>().Play("Crash");
           m_CheckForMatched = false;
-          Debug.Log("We have a match");
         }
       }
     }

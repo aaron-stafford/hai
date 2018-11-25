@@ -11,10 +11,10 @@ public class SplitScreenTouchController : MonoBehaviour, IPointerDownHandler, IP
 
   public void OnPointerUp(PointerEventData eventData) {
     if( eventData.position.x < Screen.width * 0.5 ) {
-      Debug.Log("Left side");
+      //Debug.Log("Left side");
     }
     else {
-      Debug.Log("Right side");
+      //Debug.Log("Right side");
     }
   }
 }
