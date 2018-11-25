@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
   private Object[] m_Prefabs;
+  private bool haveWon = false;
 
 	// Use this for initialization (Stuff you only want to do once)
 	void Start () {
@@ -16,6 +17,12 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 	
 	// Update is called once per frame
 	void Update () {
+    if(haveWon) {
+      WinConditionUpdate();
+    }
+  }
+
+  private void WinConditionUpdate() {
     // Spawn new object somewhere.
     int randomValue = Random.Range(0, m_Prefabs.Length);
     Vector3 position = new Vector3(0.0f, 0.0f, 0.0f);	
