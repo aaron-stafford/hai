@@ -16,6 +16,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   private float m_Timestamp;
   bool m_CheckForMatched = true;
   private bool m_TouchStateDown;
+  private AudioClip[] m_MatchSounds = new AudioClip[2];
 
 	void Start () {
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
@@ -34,6 +35,8 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     MatchManager.Instance.Reset();
     m_TouchStateDown = false;
     Debug.Log("The timer has started.");
+    m_MatchSounds[0] = (AudioClip) Resources.Load("Audio/match_yeah");
+    m_MatchSounds[1] = (AudioClip) Resources.Load("Audio/match_thatsright");
 	}
 
 	void Update () {
@@ -45,6 +48,10 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
           MatchManager.Instance.FoundMatch();
           m_GameRoot.GetComponent<Animator>().Play("Matched", -1, 0);
           m_CheckForMatched = false;
+          AudioSource audioSource = GetComponent<AudioSource> ();
+          Assert.IsNotNull(audioSource);
+          int randomValue = Random.Range(0, m_MatchSounds.Length);
+          audioSource.PlayOneShot(m_MatchSounds[randomValue], 0.7F);
         }
       }
     }
