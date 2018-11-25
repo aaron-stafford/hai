@@ -10,6 +10,7 @@ public class EndTouchController : MonoBehaviour, IPointerDownHandler, IPointerUp
   void Start() {
     m_TouchingDown = false;
   }
+
   public void OnPointerDown(PointerEventData eventData) {
     m_TouchingDown = true;
     StartCoroutine(EasterEgg());

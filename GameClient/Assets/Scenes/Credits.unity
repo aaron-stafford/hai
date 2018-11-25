@@ -141,7 +141,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1118300744}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.136, y: 0.15832283}
   m_AnchorMax: {x: 0.8816036, y: 0.62270075}
@@ -395,6 +395,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 199
       objectReference: {fileID: 0}
+    - target: {fileID: 224500158629639610, guid: e342b794ddd1643fa8d0e631ef805938,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114807589169412222, guid: e342b794ddd1643fa8d0e631ef805938, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: e342b794ddd1643fa8d0e631ef805938, type: 2}
@@ -412,7 +417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1118300742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233c68399259f4215ace69d070664bc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 116d8809d807f4975acedcdd99b3831d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1118300744 stripped
