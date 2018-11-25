@@ -30,6 +30,8 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
 	  m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     m_RightObject.transform.parent = m_GameRoot.transform;
     m_Timestamp = Time.time;
+    MatchManager.Instance.Reset();
+    
 	}
 
 	void Update () {
@@ -38,6 +40,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
         float currentTime = Time.time;
         float elapsedTime = currentTime - m_Timestamp;
         if(elapsedTime > m_MatchTime) {
+          MatchManager.Instance.FoundMatch();
           m_GameRoot.GetComponent<Animator>().Play("Matched", -1, 0);
           //m_GameRoot.GetComponent<Animator>().Play("Crash");
           m_CheckForMatched = false;

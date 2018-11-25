@@ -10,6 +10,6 @@ public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointer
   }
 
   public void OnPointerUp(PointerEventData eventData) {
-    SceneManager.LoadScene("Game");
+    SceneManager.LoadScene("GameV2");
   }
 }
