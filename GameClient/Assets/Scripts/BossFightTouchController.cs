@@ -81,8 +81,8 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
       StartCoroutine(TransitionToWin());
       AudioSource audioSource = GetComponent<AudioSource> ();
       Assert.IsNotNull(audioSource);
-      AudioClip clapping = (AudioClip) Resources.Load("Audio/clapping_audience");
-      audioSource.PlayOneShot(clapping, 0.7F);
+      AudioClip yay = (AudioClip) Resources.Load("Audio/yay");
+      audioSource.PlayOneShot(yay, 0.7F);
     }
 
     if(ScoreManager.Instance.AreYouDead()) {
@@ -116,7 +116,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
   }
 
   IEnumerator TransitionToWin () {
-    yield return new WaitForSeconds (10);
+    yield return new WaitForSeconds (3);
     SceneManager.LoadScene("Win");
   }
 
