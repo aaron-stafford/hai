@@ -10,6 +10,16 @@ public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointer
   }
 
   public void OnPointerUp(PointerEventData eventData) {
+    AudioSource audioSource = GetComponent<AudioSource> ();
+    Assert.IsNotNull(audioSource);
+    AudioClip clip1 = (AudioClip) Resources.Load("Audio/OnStartButtonPress");
+    Assert.IsNotNull(clip1);
+    audioSource.PlayOneShot(clip1, 0.7F);
+    StartCoroutine(Transition());
+  }
+
+  IEnumerator Transition () {
+    yield return new WaitForSeconds (2);
     SceneManager.LoadScene("GameV2");
   }
 }
