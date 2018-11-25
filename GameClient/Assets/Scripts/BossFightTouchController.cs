@@ -12,6 +12,8 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
   private float m_SpawnInterval = 0.4f;
   public GameObject m_CameraGameObject;
   private AudioClip[] m_MatchSounds = new AudioClip[2];
+  private AudioClip m_EnemyClick;
+
 
 	// Use this for initialization (Stuff you only want to do once)
 	void Start () {
@@ -19,6 +21,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
     m_MatchSounds[0] = (AudioClip) Resources.Load("Audio/match_yeah");
     m_MatchSounds[1] = (AudioClip) Resources.Load("Audio/match_thatsright");
+    m_EnemyClick = (AudioClip) Resources.Load("Audio/bad");
     StartCoroutine(Begin());
 	}
 	
@@ -65,6 +68,9 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
         else if(raycastHit.transform.gameObject.name.Equals("Enemy(Clone)")) {
           Destroy(raycastHit.transform.gameObject);
           ScoreManager.Instance.AddToScore(10);
+          AudioSource audioSource = GetComponent<AudioSource> ();
+          Assert.IsNotNull(audioSource);
+          audioSource.PlayOneShot(m_EnemyClick, 1.9F);
         }
         else {
           ScoreManager.Instance.AddToScore(-10);
