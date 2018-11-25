@@ -38,6 +38,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
   // Called when the mouse or finger touch down
   public void OnPointerDown(PointerEventData eventData) {
+/*
     if(eventData == null) {
       Debug.Log("eventData is null");
     }
@@ -57,11 +58,11 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
         Destroy(raycastHit.transform.gameObject);
         Debug.Log("Something Hit");
     }
+*/
   }
 
   // Called when the mouse or finger touch up
   public void OnPointerUp(PointerEventData eventData) {
-/*
     if( eventData.position.x < Screen.width * 0.5 ) {
       ScoreManager.Instance.AddToScore(10);
     }
@@ -72,7 +73,6 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     if(ScoreManager.Instance.IsBossDead()) {
       SceneManager.LoadScene("Win");
     }
-*/
   }
 
   IEnumerator Begin () {

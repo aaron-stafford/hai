@@ -11,11 +11,11 @@
     } 
   }
   
-  private int m_Score = 0;
+  public int m_Score = 0;
   private int m_MatchReward = 10;
 
   public void Init() {
-    m_Score = 100;
+    m_Score = 50;
   }
 
   public void AddToScore(int a_Offset) {
