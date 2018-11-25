@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
   private GameObject m_LeftObject; 
   private GameObject m_RightObject; 
+  public GameObject m_GameRoot; 
   public float m_XOffset = 0.3f;
   public float m_YOffset = 0.0f;
   private Object[] m_Prefabs;
@@ -20,12 +21,14 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
     GameObject gameObject = (GameObject)m_Prefabs[randomValue];
 	  m_LeftObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+    m_LeftObject.transform.parent = m_GameRoot.transform;
+
     randomValue = Random.Range(0, m_Prefabs.Length);
     position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
     gameObject = (GameObject)m_Prefabs[randomValue];
 	  m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+    m_RightObject.transform.parent = m_GameRoot.transform;
     m_Timestamp = Time.time;
-    Debug.Log(m_Timestamp);
 	}
 
 	void Update () {
@@ -49,12 +52,14 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
       m_LeftObject.AddComponent<PrefabController>();
       Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
 	    m_LeftObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+      m_LeftObject.transform.parent = m_GameRoot.transform;
     }
     else {
       m_RightObject.AddComponent<Rigidbody>();
       m_RightObject.AddComponent<PrefabController>();
       Vector3 position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
 	    m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+      m_RightObject.transform.parent = m_GameRoot.transform;
     }
     m_Timestamp = Time.time;
   }
