@@ -15,6 +15,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   public float m_MatchTime = 1.0f;
   private float m_Timestamp;
   bool m_CheckForMatched = true;
+  private bool m_TouchStateDown;
 
 	void Start () {
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
@@ -31,6 +32,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     m_RightObject.transform.parent = m_GameRoot.transform;
     m_Timestamp = Time.time;
     MatchManager.Instance.Reset();
+    m_TouchStateDown = false;
     Debug.Log("The timer has started.");
 	}
 
@@ -49,6 +51,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
 	}
 
   public void OnPointerDown(PointerEventData eventData) {
+    m_TouchStateDown = true;
   }
 
   public void OnPointerUp(PointerEventData eventData) {
@@ -70,5 +73,6 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     }
     m_Timestamp = Time.time;
     m_CheckForMatched = true;
+    m_TouchStateDown = false;
   }
 }
