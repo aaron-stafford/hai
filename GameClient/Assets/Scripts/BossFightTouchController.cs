@@ -56,8 +56,8 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     }
 
     if(ScoreManager.Instance.IsBossDead()) {
-     // SceneManager.LoadScene("Win");
      haveWon = true;
+     StartCoroutine(TransitionToEnd());
     }
     else if(ScoreManager.Instance.AreYouDead()) {
       SceneManager.LoadScene("End");
@@ -81,6 +81,11 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
       SceneManager.LoadScene("End");
     }
 */
+  }
+
+  IEnumerator TransitionToEnd () {
+    yield return new WaitForSeconds (10);
+    SceneManager.LoadScene("Win");
   }
 
   IEnumerator Begin () {
