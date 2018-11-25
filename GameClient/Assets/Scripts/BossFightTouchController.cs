@@ -38,31 +38,27 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
   // Called when the mouse or finger touch down
   public void OnPointerDown(PointerEventData eventData) {
-/*
-    if(eventData == null) {
-      Debug.Log("eventData is null");
-    }
-    Debug.Log("eventData: " + eventData.position);
-
     Camera camera = m_CameraGameObject.GetComponent<Camera>(); 
-    if(camera == null) {
-      Debug.Log("camera is null");
-    }
-    //Ray raycast = Camera.main.ScreenPointToRay(eventData.position);
     Ray raycast = camera.ScreenPointToRay(eventData.position);
-    
-    Debug.Log("Got raycast");
     RaycastHit raycastHit;
     if (Physics.Raycast(raycast, out raycastHit))
     {
         Destroy(raycastHit.transform.gameObject);
         Debug.Log("Something Hit");
+        ScoreManager.Instance.AddToScore(-10);
     }
-*/
+
+    if(ScoreManager.Instance.IsBossDead()) {
+      SceneManager.LoadScene("Win");
+    }
+    else if(ScoreManager.Instance.AreYouDead()) {
+      SceneManager.LoadScene("End");
+    }
   }
 
   // Called when the mouse or finger touch up
   public void OnPointerUp(PointerEventData eventData) {
+/*
     if( eventData.position.x < Screen.width * 0.5 ) {
       ScoreManager.Instance.AddToScore(10);
     }
@@ -76,6 +72,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     else if(ScoreManager.Instance.AreYouDead()) {
       SceneManager.LoadScene("End");
     }
+*/
   }
 
   IEnumerator Begin () {
