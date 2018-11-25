@@ -73,6 +73,9 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     if(ScoreManager.Instance.IsBossDead()) {
       SceneManager.LoadScene("Win");
     }
+    else if(ScoreManager.Instance.AreYouDead()) {
+      SceneManager.LoadScene("End");
+    }
   }
 
   IEnumerator Begin () {

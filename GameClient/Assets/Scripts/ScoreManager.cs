@@ -40,4 +40,11 @@
     }
     return false;
   }
+
+  public bool AreYouDead() {
+    if(m_Score >= 100) {
+      return true;
+    }
+    return false;
+  }
 }
