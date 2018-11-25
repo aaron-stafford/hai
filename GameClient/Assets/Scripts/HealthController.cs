@@ -16,7 +16,7 @@ public class HealthController : MonoBehaviour {
 	  // Debug.Log(m_InitialWidth);
 	  RectTransform rt = GetComponent<RectTransform>();
     //Rect rect = GetComponent<RectTransform>().rect;
-	  //GetComponent<RectTransform>().sizeDelta =  new Vector2 (100, rt.sizeDelta.y);
+	  GetComponent<RectTransform>().sizeDelta =  new Vector2 (100, rt.sizeDelta.y);
     
 	}
 	
