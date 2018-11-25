@@ -11,11 +11,14 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
   private bool haveLost = false;
   private float m_SpawnInterval = 0.4f;
   public GameObject m_CameraGameObject;
+  private AudioClip[] m_MatchSounds = new AudioClip[2];
 
 	// Use this for initialization (Stuff you only want to do once)
 	void Start () {
     ScoreManager.Instance.Init();
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
+    m_MatchSounds[0] = (AudioClip) Resources.Load("Audio/match_yeah");
+    m_MatchSounds[1] = (AudioClip) Resources.Load("Audio/match_thatsright");
     StartCoroutine(Begin());
 	}
 	
@@ -65,6 +68,10 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
         }
         else {
           ScoreManager.Instance.AddToScore(-10);
+          AudioSource audioSource = GetComponent<AudioSource> ();
+          Assert.IsNotNull(audioSource);
+          int randomValue = Random.Range(0, m_MatchSounds.Length);
+          audioSource.PlayOneShot(m_MatchSounds[randomValue], 0.7F);
           Destroy(raycastHit.transform.gameObject);
         }
     }
