@@ -79,6 +79,10 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     if(ScoreManager.Instance.IsBossDead()) {
       haveWon = true;
       StartCoroutine(TransitionToWin());
+      AudioSource audioSource = GetComponent<AudioSource> ();
+      Assert.IsNotNull(audioSource);
+      AudioClip clapping = (AudioClip) Resources.Load("Audio/clapping_audience");
+      audioSource.PlayOneShot(clapping, 0.7F);
     }
 
     if(ScoreManager.Instance.AreYouDead()) {
