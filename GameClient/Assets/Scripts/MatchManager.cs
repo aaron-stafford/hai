@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MatchManager {
-    private static MatchManager instance = null;
-    public static MatchManager Instance {
-      get  
+  private static MatchManager instance = null;
+  public static MatchManager Instance {
+    get  
+    {  
+      if (instance == null)  
       {  
-          if (instance == null)  
-          {  
-              instance = new MatchManager();  
-          }  
-          return instance;  
-      } 
-    }
+          instance = new MatchManager();  
+      }  
+      return instance;  
+    } 
+  }
 
-
-//{ get { return _instance; } }
   private int m_NumberOfMatches = 0;
   private int m_MatchesToWin = 3;
 

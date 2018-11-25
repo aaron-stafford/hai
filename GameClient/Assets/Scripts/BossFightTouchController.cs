@@ -9,6 +9,7 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
 	// Use this for initialization (Stuff you only want to do once)
 	void Start () {
+    ScoreManager.Instance.Init();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +22,15 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
   // Called when the mouse or finger touch up
   public void OnPointerUp(PointerEventData eventData) {
-  	// Could deal damage in some manner ?
+    if( eventData.position.x < Screen.width * 0.5 ) {
+      ScoreManager.Instance.AddToScore(10);
+    }
+    else {
+      ScoreManager.Instance.AddToScore(-10);
+    }
+
+    if(ScoreManager.Instance.IsBossDead()) {
+      SceneManager.LoadScene("Win");
+    }
   }
 }
