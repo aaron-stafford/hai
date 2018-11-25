@@ -77,8 +77,15 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
   IEnumerator Begin () {
     while(true) {
-      int randomValue = Random.Range(0, m_Prefabs.Length);
+
       Vector3 position = new Vector3(0.0f, 5.0f, -3.43f);	
+      GameObject enemy = Instantiate(Resources.Load("EnemyPrefabs/Enemy")) as GameObject;
+      enemy.transform.position = position;
+      enemy.AddComponent<Rigidbody>();
+      enemy.AddComponent<PrefabController>();
+
+
+      int randomValue = Random.Range(0, m_Prefabs.Length);
       GameObject gameObject = (GameObject)m_Prefabs[randomValue];
  	    GameObject newGameObject = Instantiate(gameObject, position, gameObject.transform.rotation);
       newGameObject.AddComponent<Rigidbody>();
