@@ -23,13 +23,12 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     if(haveWon) {
       WinConditionUpdate();
     }
-
   }
 
   private void WinConditionUpdate() {
     // Spawn new object somewhere.
     int randomValue = Random.Range(0, m_Prefabs.Length);
-    Vector3 position = new Vector3(0.0f, 0.0f, -4.0f);	
+    Vector3 position = new Vector3(0.0f, 0.0f, -0.0f);	
     GameObject gameObject = (GameObject)m_Prefabs[randomValue];
 	  GameObject newGameObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     newGameObject.AddComponent<Rigidbody>();
@@ -43,13 +42,22 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     RaycastHit raycastHit;
     if (Physics.Raycast(raycast, out raycastHit))
     {
-        Destroy(raycastHit.transform.gameObject);
-        Debug.Log("Something Hit");
-        ScoreManager.Instance.AddToScore(-10);
+        if(raycastHit.transform.gameObject.name.Equals("Enemy")) {
+          // Do nothing. This is just the guy in the middle
+        }
+        else if(raycastHit.transform.gameObject.name.Equals("Enemy(Clone)")) {
+          Destroy(raycastHit.transform.gameObject);
+          ScoreManager.Instance.AddToScore(10);
+        }
+        else {
+          ScoreManager.Instance.AddToScore(-10);
+          Destroy(raycastHit.transform.gameObject);
+        }
     }
 
     if(ScoreManager.Instance.IsBossDead()) {
-      SceneManager.LoadScene("Win");
+     // SceneManager.LoadScene("Win");
+     haveWon = true;
     }
     else if(ScoreManager.Instance.AreYouDead()) {
       SceneManager.LoadScene("End");
