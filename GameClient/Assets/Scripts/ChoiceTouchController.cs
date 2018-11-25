@@ -38,9 +38,10 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
         float currentTime = Time.time;
         float elapsedTime = currentTime - m_Timestamp;
         if(elapsedTime > m_MatchTime) {
-          m_GameRoot.GetComponent<Animator>().Play("Matched");
+          m_GameRoot.GetComponent<Animator>().Play("Matched", -1, 0);
+          //m_GameRoot.GetComponent<Animator>().Play("Crash");
           m_CheckForMatched = false;
-          // Debug.Log("We have a match");
+          Debug.Log("We have a match");
         }
       }
     }
