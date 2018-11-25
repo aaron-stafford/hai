@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
   private Object[] m_Prefabs;
   private bool haveWon = false;
+  private bool haveLost = false;
   private float m_SpawnInterval = 0.5f;
   public GameObject m_CameraGameObject;
 
@@ -23,6 +24,9 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     if(haveWon) {
       WinConditionUpdate();
     }
+    if(haveLost) {
+      LoseConditionUpdate();
+    }
   }
 
   private void WinConditionUpdate() {
@@ -33,6 +37,16 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 	  GameObject newGameObject = Instantiate(gameObject, position, gameObject.transform.rotation);
     newGameObject.AddComponent<Rigidbody>();
     newGameObject.AddComponent<PrefabController>();
+  }
+
+  private void LoseConditionUpdate() {
+    // Spawn new object somewhere.
+    int randomValue = Random.Range(0, m_Prefabs.Length);
+    Vector3 position = new Vector3(0.0f, 0.0f, -0.0f);	
+    GameObject enemy = Instantiate(Resources.Load("EnemyPrefabs/Enemy")) as GameObject;
+    enemy.transform.position = position;
+    enemy.AddComponent<Rigidbody>();
+    enemy.AddComponent<PrefabController>();
   }
 
   // Called when the mouse or finger touch down
@@ -56,11 +70,13 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
     }
 
     if(ScoreManager.Instance.IsBossDead()) {
-     haveWon = true;
-     StartCoroutine(TransitionToEnd());
+      haveWon = true;
+      StartCoroutine(TransitionToWin());
     }
-    else if(ScoreManager.Instance.AreYouDead()) {
-      SceneManager.LoadScene("End");
+
+    if(ScoreManager.Instance.AreYouDead()) {
+      haveLost = true;
+      StartCoroutine(TransitionToLose());
     }
   }
 
@@ -83,14 +99,18 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 */
   }
 
-  IEnumerator TransitionToEnd () {
+  IEnumerator TransitionToLose() {
+    yield return new WaitForSeconds (10);
+    SceneManager.LoadScene("End");
+  }
+
+  IEnumerator TransitionToWin () {
     yield return new WaitForSeconds (10);
     SceneManager.LoadScene("Win");
   }
 
   IEnumerator Begin () {
     while(true) {
-
       Vector3 position = new Vector3(0.0f, 5.0f, -3.43f);	
       GameObject enemy = Instantiate(Resources.Load("EnemyPrefabs/Enemy")) as GameObject;
       enemy.transform.position = position;
