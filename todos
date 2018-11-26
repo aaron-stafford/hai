@@ -1,11 +1,37 @@
-Timeline progression test.
-- Something that has an animation and animation controller (something with a
-  timeline that we can use to change the gameworld as we go).
-- Length to be determine by how long we have for presentation.
+Revisit intro sound: hai
 
-Test out a particle effect.
+Revisit transition from start to game
+- Fade to black
+- Because without sound, it seems like nothing happens for a bit.
 
-Test out a rain effects (spawning like rain?)
-- All of these things...
+Consider replacing the number at the top of the screen with a health bar that
+is going down based off of time.
 
-Health mechanic
+Find a way to convey to the player that they need to match three things before
+the timer runs out.
+
+If the player gets 3 matches before the timer runs out, make it instant win.
+There is currently no incentive to keep playing. Adding more incentive would
+incrase the number of screens (work work).
+
+Tidy up the art
+- Create some consitency between characters
+- Make sure they all sit at (0, 0, 0) 
+- Are all facing the same way
+- Scaled appropriately relative to each other
+- Need a special scene to help with the creation of these guys?
+
+Create new camera for 3d objects at the bottom of the screen
+- They should be closer towards the bottom
+- Should work for portrait and landscape and square
+
+Reposition the "Match" text so that it doesn't overlap any of the other
+elements.
+
+Redo any non original sounds.
+
+Consider dropping the second level entierly for the purpose of putting onto the
+store.
+- And/Or iterate on this. Try a version with a timer.
+
+Expose tunables via json so that we can iterate on a few designs quicker.
