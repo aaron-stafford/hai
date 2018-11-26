@@ -60,10 +60,6 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
 	}
 
   public void OnPointerDown(PointerEventData eventData) {
-    m_TouchStateDown = true;
-  }
-
-  public void OnPointerUp(PointerEventData eventData) {
     int randomValue = Random.Range(0, m_Prefabs.Length);
     GameObject gameObject = (GameObject)m_Prefabs[randomValue];
     if( eventData.position.x < Screen.width * 0.5 ) {
@@ -86,5 +82,9 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     AudioSource audioSource = GetComponent<AudioSource> ();
     Assert.IsNotNull(audioSource);
     audioSource.PlayOneShot(m_Pop, 0.7F);
+    m_TouchStateDown = true;
+  }
+
+  public void OnPointerUp(PointerEventData eventData) {
   }
 }
