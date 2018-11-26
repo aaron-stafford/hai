@@ -19,7 +19,7 @@ public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointer
   }
 
   IEnumerator Transition () {
-    yield return new WaitForSeconds (2);
+    yield return new WaitForSeconds (0.55f);
     SceneManager.LoadScene("GameV2");
   }
 }
