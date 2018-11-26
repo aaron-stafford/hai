@@ -9,8 +9,6 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   private GameObject m_LeftObject; 
   private GameObject m_RightObject; 
   public GameObject m_GameRoot; 
-  public float m_XOffset = 0.3f;
-  public float m_YOffset = 0.0f;
   private Object[] m_Prefabs;
   private float m_Timestamp;
   bool m_CheckForMatched = true;
@@ -18,25 +16,55 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   private AudioClip m_Pop;
 
 	void Start () {
+    // Initialize the GameDataManager.
+    // TODO: I think there is a better way to manage this...
+    GameDataManager.Instance.Init();
+
+    // Load all of the characters that we intend to use
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
+
+    // Randomly pick the first of two characters to show
     int randomValue = Random.Range(0, m_Prefabs.Length);
-    Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
     GameObject gameObject = (GameObject)m_Prefabs[randomValue];
+
+    // Set the spawn location based on data from data.json
+    float optionSpawnOffsetX = GameDataManager.Instance.gameData.optionSpawnOffsetX;
+    float optionSpawnOffsetY = GameDataManager.Instance.gameData.optionSpawnOffsetY;
+    Vector3 position = new Vector3(-optionSpawnOffsetX, optionSpawnOffsetY, 0.0f);	
+
+    // Instatiate the character at the spown location
 	  m_LeftObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+
+    // Set the parent for the new character
+    // TODO: Update this comment when you work out why this is done
     m_LeftObject.transform.parent = m_GameRoot.transform;
 
+    // Randomly pick the second character to show 
     randomValue = Random.Range(0, m_Prefabs.Length);
-    position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
     gameObject = (GameObject)m_Prefabs[randomValue];
+
+    // Set the spawn location based on data from data.json
+    position = new Vector3(optionSpawnOffsetX, optionSpawnOffsetY, 0.0f);	
+
+    // Instatiate the character at the spown location
 	  m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
+
+    // Set the parent for the new character
+    // TODO: Update this comment when you work out why this is done
     m_RightObject.transform.parent = m_GameRoot.transform;
+
     m_Timestamp = Time.time;
+
+    // Reset the match manager.
+    // TODO: There should be a better place for this.
     MatchManager.Instance.Reset();
-    Debug.Log("The timer has started.");
+
+    // Load all other sound resources that we intend to use.
+    // TODO: Find a better way to do this. It should be possible to remove
+    // these lines of code by doing something different
     m_MatchSounds[0] = (AudioClip) Resources.Load("Audio/match_yeah");
     m_MatchSounds[1] = (AudioClip) Resources.Load("Audio/match_thatsright");
     m_Pop = (AudioClip) Resources.Load("Audio/pop");
-    GameDataManager.Instance.Init();;
 	}
 
 	void Update () {
@@ -64,14 +92,24 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     if( eventData.position.x < Screen.width * 0.5 ) {
       m_LeftObject.AddComponent<Rigidbody>();
       m_LeftObject.AddComponent<PrefabController>();
-      Vector3 position = new Vector3(-m_XOffset, m_YOffset, 0.0f);	
+
+      // Set the spawn location based on data from data.json
+      float optionSpawnOffsetX = GameDataManager.Instance.gameData.optionSpawnOffsetX;
+      float optionSpawnOffsetY = GameDataManager.Instance.gameData.optionSpawnOffsetY;
+      Vector3 position = new Vector3(-optionSpawnOffsetX, optionSpawnOffsetY, 0.0f);	
+
 	    m_LeftObject = Instantiate(gameObject, position, gameObject.transform.rotation);
       m_LeftObject.transform.parent = m_GameRoot.transform;
     }
     else {
       m_RightObject.AddComponent<Rigidbody>();
       m_RightObject.AddComponent<PrefabController>();
-      Vector3 position = new Vector3(m_XOffset, m_YOffset, 0.0f);	
+
+      // Set the spawn location based on data from data.json
+      float optionSpawnOffsetX = GameDataManager.Instance.gameData.optionSpawnOffsetX;
+      float optionSpawnOffsetY = GameDataManager.Instance.gameData.optionSpawnOffsetY;
+      Vector3 position = new Vector3(-optionSpawnOffsetX, optionSpawnOffsetY, 0.0f);	
+
 	    m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
       m_RightObject.transform.parent = m_GameRoot.transform;
     }
