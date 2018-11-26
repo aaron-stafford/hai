@@ -17,7 +17,7 @@ public class EndTouchController : MonoBehaviour, IPointerDownHandler, IPointerUp
   }
 
   public void OnPointerUp(PointerEventData eventData) {
-    SceneManager.LoadScene("Gamev2");
+    SceneManager.LoadScene("MatchGame");
     m_TouchingDown = false;
   }
 

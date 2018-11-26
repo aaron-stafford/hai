@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class CreditsTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler  {
 
   public void OnPointerDown(PointerEventData eventData) {
-    SceneManager.LoadScene("Gamev2");
+    SceneManager.LoadScene("MatchGame");
   }
 
   public void OnPointerUp(PointerEventData eventData) {
