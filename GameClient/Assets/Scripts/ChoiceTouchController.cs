@@ -16,10 +16,6 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
   private AudioClip m_Pop;
 
 	void Start () {
-    // Initialize the GameDataManager.
-    // TODO: I think there is a better way to manage this...
-    GameDataManager.Instance.Init();
-
     // Load all of the characters that we intend to use
     m_Prefabs = Resources.LoadAll("Prefabs", typeof(GameObject));
 
@@ -54,10 +50,6 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     m_RightObject.transform.parent = m_GameRoot.transform;
 
     m_Timestamp = Time.time;
-
-    // Reset the match manager.
-    // TODO: There should be a better place for this.
-    MatchManager.Instance.Reset();
 
     // Load all other sound resources that we intend to use.
     // TODO: Find a better way to do this. It should be possible to remove
