@@ -108,7 +108,7 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
       // Set the spawn location based on data from data.json
       float optionSpawnOffsetX = GameDataManager.Instance.gameData.optionSpawnOffsetX;
       float optionSpawnOffsetY = GameDataManager.Instance.gameData.optionSpawnOffsetY;
-      Vector3 position = new Vector3(-optionSpawnOffsetX, optionSpawnOffsetY, 0.0f);	
+      Vector3 position = new Vector3(optionSpawnOffsetX, optionSpawnOffsetY, 0.0f);	
 
 	    m_RightObject = Instantiate(gameObject, position, gameObject.transform.rotation);
       m_RightObject.transform.parent = m_GameRoot.transform;
