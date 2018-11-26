@@ -34,6 +34,8 @@ Consider dropping the second level entierly for the purpose of putting onto the
 store.
 - And/Or iterate on this. Try a version with a timer.
 
+Replace the start scene and End scene with a new scene "Ready?".
+
 Expose tunables via json so that we can iterate on a few designs quicker.
 
 Its a little too easy to click on the "Retry?" screen.
