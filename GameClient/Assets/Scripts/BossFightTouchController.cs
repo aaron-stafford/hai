@@ -47,7 +47,6 @@ public class BossFightTouchController : MonoBehaviour, IPointerDownHandler, IPoi
 
   private void LoseConditionUpdate() {
     // Spawn new object somewhere.
-    int randomValue = Random.Range(0, m_Prefabs.Length);
     Vector3 position = new Vector3(0.0f, 0.0f, -0.0f);	
     GameObject enemy = Instantiate(Resources.Load("EnemyPrefabs/Enemy")) as GameObject;
     enemy.transform.position = position;
