@@ -40,3 +40,6 @@ Expose tunables via json so that we can iterate on a few designs quicker.
 
 Its a little too easy to click on the "Retry?" screen.
 - Ideally some kind of transition or delay?
+
+Add the explosion of Characters to the win condition of the Match Game.
+- Allow spam tapping and sound effects during this stage.
