@@ -6,7 +6,15 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+  private bool m_TouchingDown = false;
+
+  void Start() {
+    m_TouchingDown = false;
+  }
+
   public void OnPointerDown(PointerEventData eventData) {
+    m_TouchingDown = true;
+    StartCoroutine(EasterEgg());
   }
 
   public void OnPointerUp(PointerEventData eventData) {
@@ -15,11 +23,19 @@ public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointer
     AudioClip clip1 = (AudioClip) Resources.Load("Audio/OnStartButtonPress");
     Assert.IsNotNull(clip1);
     audioSource.PlayOneShot(clip1, 0.7F);
+    m_TouchingDown = false;
     StartCoroutine(Transition());
   }
 
   IEnumerator Transition () {
     yield return new WaitForSeconds (0.55f);
     SceneManager.LoadScene("MatchGame");
+  }
+
+  IEnumerator EasterEgg () {
+    yield return new WaitForSeconds (3);
+    if(m_TouchingDown) {
+      SceneManager.LoadScene("Credits");
+    }
   }
 }

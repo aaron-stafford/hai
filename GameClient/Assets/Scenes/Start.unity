@@ -295,7 +295,22 @@ Prefab:
     - target: {fileID: 114657215819361504, guid: e342b794ddd1643fa8d0e631ef805938,
         type: 2}
       propertyPath: m_Text
-      value: Start
+      value: ready?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657215819361504, guid: e342b794ddd1643fa8d0e631ef805938,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657215819361504, guid: e342b794ddd1643fa8d0e631ef805938,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657215819361504, guid: e342b794ddd1643fa8d0e631ef805938,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 130
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114807589169412222, guid: e342b794ddd1643fa8d0e631ef805938, type: 2}

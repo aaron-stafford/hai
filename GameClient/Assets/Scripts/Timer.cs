@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour {
         SceneManager.LoadScene("Win");
       }
       else {
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("MatchGame");
       }
     }
   }
