@@ -19,10 +19,8 @@ public class Timer : MonoBehaviour {
     GetComponent<Text>().text = "" + timeLeft;
     if (isTimerOff())
     {
-      // Just removing the following line because it currently leads to a graphic glitch.
-      // GetComponent<Text>().text = "Time off";
       if(MatchManager.Instance.DidWin()) {
-        SceneManager.LoadScene("BossFight");
+        SceneManager.LoadScene("Win");
       }
       else {
         SceneManager.LoadScene("End");
