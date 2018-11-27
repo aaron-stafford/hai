@@ -10,6 +10,6 @@ public class WinTouchController : MonoBehaviour, IPointerDownHandler, IPointerUp
   }
 
   public void OnPointerUp(PointerEventData eventData) {
-    SceneManager.LoadScene("MatchGame");
+    SceneManager.LoadScene("Start");
   }
 }

@@ -6,21 +6,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class CreditsTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler  {
-
   public void OnPointerDown(PointerEventData eventData) {
-    SceneManager.LoadScene("MatchGame");
+    SceneManager.LoadScene("Start");
   }
 
   public void OnPointerUp(PointerEventData eventData) {
   }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
