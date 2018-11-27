@@ -57,6 +57,9 @@ public class ChoiceTouchController : MonoBehaviour, IPointerDownHandler, IPointe
     m_MatchSounds[0] = (AudioClip) Resources.Load("Audio/match_yeah");
     m_MatchSounds[1] = (AudioClip) Resources.Load("Audio/match_thatsright");
     m_Pop = (AudioClip) Resources.Load("Audio/pop");
+    // Reset the match manager.
+    // TODO: There should be a better place for this.
+    MatchManager.Instance.Reset();
 	}
 
 	void Update () {

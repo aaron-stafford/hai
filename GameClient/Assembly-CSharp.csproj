@@ -61,7 +61,6 @@
      <Compile Include="Assets\Scripts\GameDataManager.cs" />
      <Compile Include="Assets\Scripts\GameTouchController.cs" />
      <Compile Include="Assets\Scripts\HealthController.cs" />
-     <Compile Include="Assets\Scripts\MatchGameController.cs" />
      <Compile Include="Assets\Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\ObjectType1Manager.cs" />
      <Compile Include="Assets\Scripts\PrefabController.cs" />
