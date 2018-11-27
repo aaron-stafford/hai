@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MatchGame.unity
     guid: 8b4c5a7e628ac4f098a3e556af2ed038
   - enabled: 1
-    path: Assets/Scenes/End.unity
-    guid: 50307b6a4fac84a668829e5543a27a23
-  - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: edc9f6f3648174f998186bb82a45efc7
   - enabled: 1
