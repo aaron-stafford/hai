@@ -17,13 +17,14 @@ public class Timer : MonoBehaviour {
 	
 	void Update () {
     GetComponent<Text>().text = "" + timeLeft;
-    if (isTimerOff())
-    {
+    if(isTimerOff()) {
       if(MatchManager.Instance.DidWin()) {
         SceneManager.LoadScene("Win");
       }
       else {
         SceneManager.LoadScene("Start");
+        GameObject gameObject = GameObject.Find("FadePanel");
+        gameObject.GetComponent<Animator>().Play("FadeOut");
       }
     }
   }
