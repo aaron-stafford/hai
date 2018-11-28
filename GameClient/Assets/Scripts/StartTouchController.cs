@@ -25,6 +25,8 @@ public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointer
     audioSource.PlayOneShot(clip1, 0.7F);
     m_TouchingDown = false;
     StartCoroutine(Transition());
+    GameObject gameObject = GameObject.Find("FadePanel");
+    gameObject.GetComponent<Animator>().Play("FadeOut");
   }
 
   IEnumerator Transition () {
