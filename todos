@@ -1,19 +1,14 @@
-Consider replacing the number at the top of the screen with a health bar that
-is going down based off of time.
+Finish the fade in and out mechanic
 
-Find a way to convey to the player that they need to match three things before
-the timer runs out.
+Make the win condition more rewarding.
+- Explosion of characters
+- Fireworks like.
+- Potential to have some fun with an animation
+-- Could animate some of the characters.
 
 If the player gets 3 matches before the timer runs out, make it instant win.
 There is currently no incentive to keep playing. Adding more incentive would
 incrase the number of screens (work work).
-
-Tidy up the art
-- Create some consitency between characters
-- Make sure they all sit at (0, 0, 0) 
-- Are all facing the same way
-- Scaled appropriately relative to each other
-- Need a special scene to help with the creation of these guys?
 
 Create new camera for 3d objects at the bottom of the screen
 - They should be closer towards the bottom
@@ -22,10 +17,18 @@ Create new camera for 3d objects at the bottom of the screen
 Reposition the "Match" text so that it doesn't overlap any of the other
 elements.
 
+Find a way to convey to the player that they need to match three things before
+the timer runs out.
+
+Consider replacing the number at the top of the screen with a health bar that
+is going down based off of time.
+
+Tidy up the art
+- Create some consitency between characters
+- Make sure they all sit at (0, 0, 0) 
+- Are all facing the same way
+- Scaled appropriately relative to each other
+- Need a special scene to help with the creation of these guys?
+
 Redo any non original sounds.
 
-Its a little too easy to click on the "Retry?" screen.
-- Ideally some kind of transition or delay?
-
-Add the explosion of Characters to the win condition of the Match Game.
-- Allow spam tapping and sound effects during this stage.
