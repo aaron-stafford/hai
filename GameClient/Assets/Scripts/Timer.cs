@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour {
   public int timeLeft = 0;
   public Text countdownText;
+  private bool m_StartTransition = false;;
 
   public void Init(int time) {
     timeLeft = time;
@@ -22,20 +23,17 @@ public class Timer : MonoBehaviour {
         SceneManager.LoadScene("Win");
       }
       else {
-        SceneManager.LoadScene("Start");
-        GameObject gameObject = GameObject.Find("FadePanel");
-        gameObject.GetComponent<Animator>().Play("FadeOut");
+        if(m_StartTransition) {
+          GameObject gameObject = GameObject.Find("FadePanel");
+          gameObject.GetComponent<Animator>().Play("FadeOutMatchGame");
+          m_StartTransition = false;
+        }
       }
     }
   }
 
   public bool isTimerOff() {
-    if (timeLeft > 0) {
-      return false;
-    }
-    else {
-      return true;
-    }
+    return ! (timeLeft > 0);
   }
 
   IEnumerator LoseTime()

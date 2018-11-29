@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ChoiceTouchController.cs" />
      <Compile Include="Assets\Scripts\CreditsTouchController.cs" />
+     <Compile Include="Assets\Scripts\FadePanelScript.cs" />
      <Compile Include="Assets\Scripts\GameData.cs" />
      <Compile Include="Assets\Scripts\GameDataManager.cs" />
      <Compile Include="Assets\Scripts\HealthController.cs" />

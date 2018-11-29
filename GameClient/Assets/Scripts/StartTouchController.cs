@@ -24,14 +24,8 @@ public class StartTouchController : MonoBehaviour, IPointerDownHandler, IPointer
     Assert.IsNotNull(clip1);
     audioSource.PlayOneShot(clip1, 0.7F);
     m_TouchingDown = false;
-    StartCoroutine(Transition());
     GameObject gameObject = GameObject.Find("FadePanel");
-    gameObject.GetComponent<Animator>().Play("FadeOut");
-  }
-
-  IEnumerator Transition () {
-    yield return new WaitForSeconds (0.55f);
-    SceneManager.LoadScene("MatchGame");
+    gameObject.GetComponent<Animator>().Play("FadeOutStart");
   }
 
   IEnumerator EasterEgg () {
