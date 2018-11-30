@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MatchManager {
   private static MatchManager instance = null;
@@ -24,6 +25,9 @@ public class MatchManager {
 
   public void FoundMatch() {
     m_NumberOfMatches++;
+    if(MatchManager.Instance.DidWin()) {
+      SceneManager.LoadScene("Win");
+    }
   }
 
   public bool DidWin() {
